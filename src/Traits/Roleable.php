@@ -13,6 +13,7 @@ trait Roleable
          {
              return $this->belongsToMany('Lembarek\Role\Models\Role');
          }
+
         /**
          * check if the user has a role
          *
