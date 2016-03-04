@@ -9,10 +9,10 @@ trait Roleable
           *
           * @return Lembarek\Role\Models\Role
           */
-         public function roles()
-         {
-             return $this->belongsToMany('Lembarek\Role\Models\Role');
-         }
+    public function roles()
+    {
+        return $this->belongsToMany('Lembarek\Role\Models\Role');
+    }
 
         /**
          * check if the user has a role
@@ -20,14 +20,15 @@ trait Roleable
          * @param  string  $role
          * @return boolean
          */
-        public function hasRole($role)
-        {
-            foreach($this->roles()->get() as $r){
-                if($r->name == $role)
-                    return true;
+    public function hasRole($role)
+    {
+        foreach ($this->roles()->get() as $r) {
+            if ($r->name == $role) {
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
         /**
          * assign a role to a user
@@ -35,8 +36,8 @@ trait Roleable
          * @param  string  $role
          * @return void
          */
-        public function assignRole($role)
-        {
-            $this->roles()->attach($role);
-        }
+    public function assignRole($role)
+    {
+        $this->roles()->attach($role);
+    }
 }

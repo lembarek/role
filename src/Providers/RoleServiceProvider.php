@@ -13,7 +13,7 @@ class RoleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->fullBoot('role',__DIR__.'/../');
+        $this->fullBoot('role', __DIR__.'/../');
     }
 
     /**

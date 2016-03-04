@@ -9,10 +9,10 @@ trait Permissionable
           *
           * @return Lembarek\Role\Models\Permission
           */
-         public function permissions()
-         {
-             return $this->belongsToMany('Lembarek\Role\Models\Permission');
-         }
+    public function permissions()
+    {
+        return $this->belongsToMany('Lembarek\Role\Models\Permission');
+    }
 
         /**
          * check if the role has a permission
@@ -20,14 +20,15 @@ trait Permissionable
          * @param  string  $permission
          * @return boolean
          */
-        public function hasPermission($permission)
-        {
-            foreach($this->permissions()->get() as $p){
-                if($p->name == $permission)
-                    return true;
+    public function hasPermission($permission)
+    {
+        foreach ($this->permissions()->get() as $p) {
+            if ($p->name == $permission) {
+                return true;
             }
-            return false;
         }
+        return false;
+    }
 
         /**
          * assign a permission to a role
@@ -35,9 +36,8 @@ trait Permissionable
          * @param  string  $permission
          * @return void
          */
-        public function assignPermission($permission)
-        {
-            $this->permissions()->attach($permission);
-        }
-
+    public function assignPermission($permission)
+    {
+        $this->permissions()->attach($permission);
+    }
 }
