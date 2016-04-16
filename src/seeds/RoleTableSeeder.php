@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Lembarek\Role\Models\Role;
 
-class RoleSeeder extends Seeder
+class RoleTableSeeder extends Seeder
 {
     /**
     * Run the database seeds.
