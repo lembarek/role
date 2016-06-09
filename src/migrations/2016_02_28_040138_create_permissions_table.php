@@ -18,6 +18,8 @@ class CreatePermissionsTable extends Migration
 
             $table->string('name')->unique();
 
+            $table->string('display_name')->unique();
+
             $table->timestamps();
         });
     }
