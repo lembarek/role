@@ -13,7 +13,7 @@ class PermissionTableSeeder extends Seeder
     */
     public function run()
     {
-        $permissions = R::$permissions;
+        $permissions = R::allPermissions();
         foreach ($permissions as $name => $display_name) {
             Permission::create(compact('name', 'display_name'));
         }

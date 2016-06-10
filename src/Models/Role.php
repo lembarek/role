@@ -8,5 +8,5 @@ class Role extends Model
 {
     use Permissionable;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'order'];
 }
