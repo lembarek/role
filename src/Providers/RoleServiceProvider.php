@@ -23,6 +23,10 @@ class RoleServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            'Lembarek\Role\Repositories\RoleRepositoryInterface',
+            'Lembarek\Role\Repositories\RoleRepository'
+        );
+
     }
 }
