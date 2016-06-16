@@ -69,12 +69,12 @@ trait Roleable
      */
     public function maxRole()
     {
-        $roles = $this->roles();
+        $roles = $this->roles;
         $r = $roles->first();
 
         foreach ($roles as $role){
             if($role->order > $r->order)
-                $r = role;
+                $r = $role;
         }
 
         return $r;
