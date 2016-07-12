@@ -7,7 +7,6 @@ use Lembarek\Role\Models\Role;
 
 trait Roleable
 {
-
     /**
     * return all roles for a user
     *
@@ -17,7 +16,6 @@ trait Roleable
     {
         return $this->belongsToMany('Lembarek\Role\Models\Role');
     }
-
 
     /**
     * check if the user has a role
@@ -35,7 +33,6 @@ trait Roleable
         return false;
     }
 
-
     /**
     * assign a role to a user
     *
@@ -46,7 +43,6 @@ trait Roleable
     {
         $this->roles()->attach($role);
     }
-
 
     /**
      * check if the current user is supurior then $user
@@ -60,7 +56,6 @@ trait Roleable
         if( ! $user->maxRole()) return true;
         return $this->maxRole()->order > $user->maxRole()->order;
     }
-
 
     /**
      * return the most supurior role for a user
@@ -80,7 +75,6 @@ trait Roleable
         return $r;
     }
 
-
     /**
      * can add a role
      *
@@ -92,7 +86,6 @@ trait Roleable
         return $this->maxRole()->order >= $role->order;
     }
 
-
     /**
      * can delete a role
      *
@@ -103,7 +96,6 @@ trait Roleable
     {
         return $this->maxRole()->order >= $user->maxRole()->order;
     }
-
 
     /**
      * return all available role for this user
@@ -125,5 +117,19 @@ trait Roleable
         return $roles->get();
     }
 
+    /**
+     * check if user has permission
+     *
+     * @param  string  $permission
+     * @return boolean
+     */
+    public function hasPermission($permission)
+    {
+        foreach($this->roles()->get() as $role){
+            if($role->hasPermission($permission))
+                return true;
+        }
+        return false;
+    }
 
 }
