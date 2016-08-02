@@ -125,7 +125,7 @@ trait Roleable
      */
     public function hasPermission($permission)
     {
-        foreach($this->roles()->get() as $role){
+        foreach($this->roles as $role){
             if($role->hasPermission($permission))
                 return true;
         }
