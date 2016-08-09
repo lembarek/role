@@ -25,12 +25,7 @@ trait Roleable
     */
     public function hasRole($role)
     {
-        foreach ($this->roles()->get() as $r) {
-            if ($r->name == $role) {
-                return true;
-            }
-        }
-        return false;
+        return $this->roles()->where('name', $role)->exists();
     }
 
     /**
