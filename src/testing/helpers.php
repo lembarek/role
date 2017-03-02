@@ -5,12 +5,12 @@ use Lembarek\Role\Models\Permission;
 
 function createRole($overs = [], $limit=1)
 {
-    return factory(Role::class, $limit)->create($overs);
+    return ufactory(Role::class, $limit)->create($overs);
 }
 
 function createPermission($overs = [])
 {
-    return factory(Permission::class)->create($overs);
+    return ufactory(Permission::class)->create($overs);
 }
 
 function findOrCreateRole($overs = [])
